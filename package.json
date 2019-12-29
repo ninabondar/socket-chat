@@ -2,10 +2,15 @@
   "name": "socket-chat-app",
   "private": true,
   "scripts": {
-    "start": "cd src/frontend/ && react-scripts start",
-    "build": "cd src/frontend/ && react-scripts build"
+    "start:frontend": "cd src/frontend/ && react-scripts start",
+    "build:frontend": "cd src/frontend/ && react-scripts build",
+    "start:backend": "cd src/backend/ && yarn start",
+    "start": "concurrently \"yarn start:frontend\" \"yarn start:backend\""
   },
   "workspaces": [
     "src/*"
-  ]
+  ],
+  "devDependencies": {
+    "concurrently": "^5.0.2"
+  }
 }
